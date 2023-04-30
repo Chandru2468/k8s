@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+  labels:
+    app: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+  tolerations:
+  - key: taint
+    operator: Equal
+    value: w1
+    effect: NoSchedule
